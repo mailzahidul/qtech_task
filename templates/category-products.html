@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+	<div class="row my-3">
+		<div class="col-md-12">
+			<img class="w-100" src="{{ category.image.url }}" alt="">
+		</div>
+	</div>
+	<div class="row">
+	{% include 'side-searchbar.html' %}
+	<main class="col-md-9">
+		    <div id="load_search_products">
+                {% include 'searched_product.html' %}
+            </div>
+	</main>
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,121 @@
+{% load static %}
+<aside class="col-md-3">
+			<div class="card">
+				<article class="filter-group">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
+							<i class="icon-control fa fa-chevron-down"></i>
+							<h6 class="title">Categories</h6>
+						</a>
+					</header>
+					<div class="filter-content collapse show" id="collapse_1" style="">
+						<div class="card-body">
+							<ul class="list-menu">
+								<li><a href="{% url 'products' %}">All Category</a></li>
+								{% for category in categories %}
+								<li><a href="{% url 'category-products' category.name %}">{{ category.name }}</a>
+									<b class="badge badge-pill badge-light float-right">{{ category.number_of_product}}</b>
+								</li>
+								{% endfor %}
+							</ul>
+
+						</div> <!-- card-body.// -->
+					</div>
+				</article> <!-- filter-group  .// -->
+
+				<article class="filter-group">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
+							<i class="icon-control fa fa-chevron-down"></i>
+							<h6 class="title">Price range </h6>
+						</a>
+					</header>
+					<div class="filter-content collapse show" style="">
+						<div class="card-body">
+							<form action="GET">
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<label>Min</label>
+										<input class="form-control" name="start_price" placeholder="৳0" type="number"
+											   required>
+									</div>
+									<div class="form-group text-right col-md-6">
+										<label>Max</label>
+										<input class="form-control" name="end_price" placeholder="৳1,00000"
+											   type="number" required>
+									</div>
+								</div> <!-- form-row.// -->
+								<button type="submit" class="btn btn-block btn-primary">Apply</button>
+							</form>
+
+						</div><!-- card-body.// -->
+					</div>
+				</article> <!-- filter-group .// -->
+
+				<article class="filter-group">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
+							<i class="icon-control fa fa-chevron-down"></i>
+							<h6 class="title">Brands </h6>
+						</a>
+					</header>
+					<div class="filter-content collapse show" style="">
+						<div class="card-body">
+							{% for brand in brands %}
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input brand" value="{{brand.name}}"
+									   onclick="brandOnChange()">
+								<div class="custom-control-label">{{ brand.name }}
+									<b class="badge badge-pill badge-light float-right">{{ brand.number_of_product}}</b>
+								</div>
+							</label>
+							{% endfor %}
+						</div> <!-- card-body.// -->
+					</div>
+				</article> <!-- filter-group .// -->
+
+				<article class="filter-group">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
+							<i class="icon-control fa fa-chevron-down"></i>
+							<h6 class="title">Seller </h6>
+						</a>
+					</header>
+					<div class="filter-content collapse show" id="collapse_2" style="">
+						<div class="card-body">
+							{% for seller in sellers %}
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input seller" value="{{seller.name}}"
+									   onclick="sellerOnChange()">
+								<div class="custom-control-label">{{ seller.name }}
+									<b class="badge badge-pill badge-light float-right">{{ seller.number_of_product}}</b>
+								</div>
+							</label>
+							{% endfor %}
+						</div> <!-- card-body.// -->
+					</div>
+				</article> <!-- filter-group .// -->
+				<article class="filter-group">
+					<header class="card-header">
+						<a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
+							<i class="icon-control fa fa-chevron-down"></i>
+							<h6 class="title">Warranty </h6>
+						</a>
+					</header>
+					<div class="filter-content collapse show" style="">
+						<div class="card-body">
+							{% for warranty in warranties %}
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input warranty"
+									   value="{{warranty.warranty_period}}" onclick="warrantyOnChange()">
+								<div class="custom-control-label">{{ warranty.warranty_period }}
+									<b class="badge badge-pill badge-light float-right">{{ warranty.number_of_product}}</b>
+								</div>
+							</label>
+							{% endfor %}
+						</div> <!-- card-body.// -->
+					</div>
+				</article> <!-- filter-group .// -->
+			</div> <!-- card.// -->
+
+		</aside>
