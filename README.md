@@ -1,7 +1,4 @@
-# qtech_task
-
-## E-commerce Web Application Create by Django
-![ecommerce](https://user-images.githubusercontent.com/20764328/123131775-d54d3f80-d46f-11eb-92ac-c99aa923c799.PNG)
+# Qtec Task
 
 ### About this project
   This project only for Qtec Solution Limited. Here I use two type of search one (Category and Price) for django form and another(Brand, Sellers and Warranty) for using Jquery and ajax.
